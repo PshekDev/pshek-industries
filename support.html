@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PshekIndustries — Поддержка</title>
+    <style>
+        :root {
+            --bg-dark: #07080a;
+            --bg-card: #111319;
+            --accent-blue: #00d2ff;
+            --accent-pink: #ff007f;
+            --text-main: #f1f2f6;
+            --text-muted: #6c7a89;
+            --border: #1f242e;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0; padding: 0; line-height: 1.6;
+        }
+        nav {
+            background: rgba(5, 6, 8, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 20px 5%;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+        nav a {
+            color: #8b949e; text-decoration: none; margin: 0 20px; font-weight: 600; font-size: 1.1rem;
+        }
+        nav a.active {
+            color: var(--accent-blue); border-bottom: 2px solid var(--accent-blue); padding-bottom: 4px;
+        }
+        .container { max-width: 700px; margin: 50px auto; padding: 0 20px; }
+        .page-title { text-align: center; margin-bottom: 10px; font-size: 2.5rem; color: var(--accent-blue); }
+        .subtitle { text-align: center; color: var(--text-muted); margin-bottom: 40px; }
+        
+        .faq-section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 25px; margin-bottom: 30px; }
+        .faq-item { border-bottom: 1px solid var(--border); padding: 15px 0; }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-q { font-weight: bold; color: var(--accent-pink); margin-bottom: 5px; }
+        .faq-a { color: #8b949e; font-size: 0.95rem; }
+
+        .support-form { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 30px; text-align: left; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: #8b949e; }
+        input, select, textarea { width: 100%; padding: 12px; background: #0d0e12; border: 1px solid var(--border); border-radius: 8px; color: #fff; box-sizing: border-box; font-family: sans-serif; }
+        textarea { resize: vertical; height: 120px; }
+        .btn-submit { display: block; width: 100%; background: linear-gradient(135deg, var(--accent-pink), #m0005f); color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; text-align: center; text-decoration: none; }
+        footer { text-align: center; padding: 40px; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="catalog.html">Каталог товаров</a>
+        <a href="reviews.html">Отзывы</a>
+        <a href="support.html" class="active">Поддержка</a>
+        <a href="cart.html">🛒 Корзина</a>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Центр остановки Хаоса</h1>
+        <p class="subtitle">Официальная служба игнорирования обращений PshekIndustries</p>
+
+        <!-- База знаний (FAQ) -->
+        <div class="faq-section">
+            <div class="faq-item">
+                <div class="faq-q">Что делать, если Узбекисия из-под коней не заводится?</div>
+                <div class="faq-a">Проверьте уровень плова в двигателе.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Мой PshekPhone 1 pro пришел без экрана. Это брак?</div>
+                <div class="faq-a">Это инновации. Перезагрузите ваше воображение, удерживая палец на затылке в течение 34 секунд.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Я случайно вытер левую ногу полотенцем для правой. Что мне грозит?</div>
+                <div class="faq-a">Немедленно прекратите хождение! Ваша лицензия заблокирована. Ожидайте визита синих специалистов.</div>
+            </div>
+        </div>
+
+        <!-- Форма тикета -->
+        <div class="support-form">
+            <h3 style="margin-top:0; margin-bottom:20px; color: var(--accent-blue);">Открыть тикет жалобы</h3>
+            <div class="form-group">
+                <label>Ваше имя (или позывной)</label>
+                <input type="text" placeholder="Виталий / Скуф №1">
+            </div>
+            <div class="form-group">
+                <label>Проблемный товар</label>
+                <select>
+                    <option>Септик на 3 литра</option>
+                    <option>Пиленные пружины на Ниву</option>
+                    <option>Глаза воблы (бракованный взгляд)</option>
+                    <option>Другой абсурд</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Суть претензии</label>
+                <textarea placeholder="Опишите, как именно наш товар сломал вашу логику..."></textarea>
+            </div>
+            <a href="#" class="btn-submit" onclick="alert('Ваша жалоба успешно отправлена в ваш септик почтой. Спасибо за обращение!'); return false;">Отправить в пустоту</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 PshekIndustries. Рассмотрение тикетов занимает от 5 минут до окончания действия гарантии на товар.</p>
+    </footer>
+
+</body>
+</html>
