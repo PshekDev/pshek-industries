@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>PshekIndustries — Каталог</title>
+    <style>
+        body { font-family: sans-serif; background: #0d0e12; color: #fff; margin: 0; padding: 0; }
+        nav { background: #050608; padding: 20px; text-align: center; border-bottom: 2px solid #161820; }
+        nav a { color: #8b949e; text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 1.2rem; }
+        nav a.active { color: #00d2ff; border-bottom: 2px solid #00d2ff; }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .catalog-title { text-align: center; margin-bottom: 40px; font-size: 2.5rem; color: #00d2ff; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { background: #161820; border-radius: 12px; border: 1px solid #222531; text-align: center; display: flex; flex-direction: column; overflow: hidden; }
+        
+        /* Блок для картинки */
+        .image-container { 
+            height: 200px; 
+            background: #1c1e29; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            overflow: hidden;
+            border-bottom: 1px solid #222531;
+        }
+        .product-img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
+        
+        .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        h3 { margin: 10px 0; color: #00d2ff; font-size: 1.3rem; }
+        p { color: #8b949e; font-size: 0.9rem; min-height: 50px; flex-grow: 1; margin-bottom: 15px; }
+        .price { color: #00ff88; font-weight: bold; font-size: 1.3rem; display: block; margin-bottom: 15px; }
+        .btn { display: inline-block; background: #0082ff; color: #fff; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; }
+        .btn-orange { background: #ff9f43; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="catalog.html" class="active">Каталог товаров</a>
+        <a href="cart.html">🛒 Корзина</a>
+    </nav>
+    <div class="container">
+        <h2 class="catalog-title">Абсолютно случайный ассортимент</h2>
+        <div class="grid">
+            
+            <!-- Товар 1 -->
+            <div class="card">
+                <div class="image-container">
+                    <img src="kepka.jpg" onerror="this.src='kepka.png'; this.onerror=function(){this.src='https://placeholder.com🧠';}" class="product-img" alt="Кепка">
+                </div>
+                <div class="card-content">
+                    <h3>Кепка умоподавления</h3>
+                    <p>Полностью глушит любые зачатки критического мышления. Идеальна для залипания в телефон.</p>
+                    <span class="price">3 490 ₽</span>
+                    <a href="cart.html?add=1" class="btn">В корзину</a>
+                </div>
+            </div>
+
+            <!-- Товар 2 -->
+            <div class="card">
+                <div class="image-container">
+                    <img src="tank.jpg" onerror="this.src='tank.png'; this.onerror=function(){this.src='https://placeholder.com🔭';}" class="product-img" alt="Прицел">
+                </div>
+                <div class="card-content">
+                    <h3>Прицел танковый</h3>
+                    <p>Оптический прицел со следами активной эксплуатации. Позволяет высматривать курьеров.</p>
+                    <span class="price">45 000 ₽</span>
+                    <a href="cart.html?add=2" class="btn">В корзину</a>
+                </div>
+            </div>
+
+            <!-- Товар 3 -->
+            <div class="card">
+                <div class="image-container">
+                    <img src="lep.jpg" onerror="this.src='lep.png'; this.onerror=function(){this.src='https://placeholder.com🗼';}" class="product-img" alt="ЛЭП">
+                </div>
+                <div class="card-content">
+                    <h3>ЛЭП с кабелями</h3>
+                    <p>Полноразмерная линия электропередач. Отличный повод поскандалить с председателем СНТ.</p>
+                    <span class="price">189 000 ₽</span>
+                    <a href="cart.html?add=3" class="btn">В корзину</a>
+                </div>
+            </div>
+
+            <!-- Товар 4 -->
+            <div class="card">
+                <div class="image-container">
+                    <img src="shlem.jpg" onerror="this.src='shlem.png'; this.onerror=function(){this.src='https://placeholder.com🪖';}" class="product-img" alt="Шлем">
+                </div>
+                <div class="card-content">
+                    <h3>Мотоциклетный шлем</h3>
+                    <p>Защищает голову от реалий жизни. Оснащен встроенным держателем для шаурмы.</p>
+                    <span class="price">8 200 ₽</span>
+                    <a href="cart.html?add=4" class="btn">В корзину</a>
+                </div>
+            </div>
+
+            <!-- Товар 5 -->
+            <div class="card">
+                <div class="image-container">
+                    <img src="lic.jpg" onerror="this.src='lic.png'; this.onerror=function(){this.src='https://placeholder.com🖐️';}" class="product-img" alt="Лицензия">
+                </div>
+                <div class="card-content">
+                    <h3>Лицензия на хождение</h3>
+                    <p>Официальный юридический документ, разрешающий передвигаться кверху ногами на одной руке.</p>
+                    <span class="price">1 500 ₽</span>
+                    <a href="cart.html?add=5" class="btn">В корзину</a>
+                </div>
+            </div>
+
+         <!-- Товар 6 -->
+<div class="card">
+    <div class="image-container" style="font-size: 4.5rem; display: flex; align-items: center; justify-content: center; background: #1c1e29;">
+        🩺
+    </div>
+    <div class="card-content">
+        <h3>Справка от проктолога</h3>
+        <p>Заключение эксперта из подвала №3 о наличии у вас благородных анальных полипов.</p>
+        <span class="price">650 ₽</span>
+        <a href="cart.html?add=6" class="btn">В корзину</a>
+    </div>
+</div>
+
+            <!-- Товар 7 -->
+            <div class="card">
+                <div class="image-container">
+                    <img src="matiz.jpg" onerror="this.src='matiz.png'; this.onerror=function(){this.src='https://placeholder.com🚗';}" class="product-img" alt="Матиз">
+                </div>
+                <div class="card-content">
+                    <h3>Daewoo Matiz с ресничками</h3>
+                    <p>Масштаб 1:43. Кузов укомплектован роскошными накладными ресничками на фарах.</p>
+                    <span class="price">2 100 ₽</span>
+                    <a href="cart.html?add=7" class="btn">В корзину</a>
+                </div>
+            </div>
+
+            <!-- Товар 8 -->
+            <div class="card">
+                <div class="image-container">
+                    <img src="klav.jpg" onerror="this.src='klav.png'; this.onerror=function(){this.src='https://placeholder.com⌨️';}" class="product-img" alt="Клавиатура">
+                </div>
+                <div class="card-content">
+                    <h3>Клавиатура GleckTech</h3>
+                    <p>Кастомная механика. Каждое нажатие на клавишу издает сочный звук открывания пива.</p>
+                    <span class="price">11 490 ₽</span>
+                    <a href="cart.html?add=8" class="btn">В корзину</a>
+                </div>
+            </div>
+
+            <!-- Товар 9 -->
+            <div class="card">
+                <div class="image-container">
+                    <img src="phone.jpg" onerror="this.src='phone.png'; this.onerror=function(){this.src='https://placeholder.com📱';}" class="product-img" alt="Пшекфон">
+                </div>
+                <div class="card-content">
+                    <h3>PshekPhone 1 pro</h3>
+                    <p>Первый в мире смартфон без экрана. Зачем дисплей, если есть богатое воображение?</p>
+                    <span class="price">99 990 ₽</span>
+                    <a href="cart.html?add=9" class="btn btn-orange">Предзаказ</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
