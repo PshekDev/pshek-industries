@@ -4,40 +4,46 @@
     <meta charset="UTF-8">
     <title>PshekIndustries — Каталог</title>
     <style>
-        body { font-family: sans-serif; background: #0d0e12; color: #fff; margin: 0; padding: 0; }
-        nav { background: #050608; padding: 20px; text-align: center; border-bottom: 2px solid #161820; }
-        nav a { color: #8b949e; text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 1.2rem; }
-        nav a.active { color: #00d2ff; border-bottom: 2px solid #00d2ff; }
+        :root {
+            --bg-dark: #07080a;
+            --bg-card: #111319;
+            --accent-blue: #00d2ff;
+            --accent-pink: #ff007f;
+            --text-main: #f1f2f6;
+            --text-muted: #6c7a89;
+            --border: #1f242e;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-dark); color: var(--text-main); margin: 0; padding: 0; }
+        nav { background: rgba(5, 6, 8, 0.85); backdrop-filter: blur(12px); padding: 20px 5%; text-align: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        nav a { color: #8b949e; text-decoration: none; margin: 0 20px; font-weight: 600; font-size: 1.1rem; transition: color 0.3s; }
+        nav a.active { color: var(--accent-blue); border-bottom: 2px solid var(--accent-blue); padding-bottom: 4px; }
+        nav a:hover { color: var(--text-main); }
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .catalog-title { text-align: center; margin-bottom: 40px; font-size: 2.5rem; color: #00d2ff; }
+        .catalog-title { text-align: center; margin-bottom: 40px; font-size: 2.5rem; color: var(--accent-blue); font-weight: 900; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .card { background: #161820; border-radius: 12px; border: 1px solid #222531; text-align: center; display: flex; flex-direction: column; overflow: hidden; position: relative; }
-        .card:hover { border-color: #ff007f; }
+        .card { background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border); text-align: center; display: flex; flex-direction: column; overflow: hidden; position: relative; transition: border-color 0.3s; }
+        .card:hover { border-color: var(--accent-pink); }
         
-        /* Блок контейнера для картинок и эмодзи */
         .image-container { 
-            height: 180px; 
-            background: #1c1e29; 
+            height: 200px; 
+            background: #161820; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             font-size: 4.5rem;
-            border-bottom: 1px solid #222531;
+            border-bottom: 1px solid var(--border);
             overflow: hidden;
         }
-        .product-img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-        }
+        .product-img { width: 100%; height: 100%; object-fit: cover; }
         
         .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
-        h3 { margin: 10px 0; color: #00d2ff; font-size: 1.2rem; min-height: 45px; display: flex; align-items: center; justify-content: center; }
-        p { color: #8b949e; font-size: 0.85rem; min-height: 60px; flex-grow: 1; margin-bottom: 15px; line-height: 1.4; }
-        .price { color: #00ff88; font-weight: bold; font-size: 1.25rem; display: block; margin-bottom: 15px; }
-        .btn { display: inline-block; background: #0082ff; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; }
-        .btn-orange { background: #ff9f43; }
-        .badge { position: absolute; top: 10px; right: 10px; background: #ff007f; color: white; padding: 3px 8px; border-radius: 10px; font-size: 0.7rem; font-weight: bold; z-index: 5; }
+        h3 { margin: 10px 0; color: var(--accent-blue); font-size: 1.25rem; min-height: 45px; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+        p { color: #8b949e; font-size: 0.88rem; min-height: 60px; flex-grow: 1; margin-bottom: 15px; line-height: 1.4; text-align: center; }
+        .price { color: #00ff88; font-weight: bold; font-size: 1.3rem; display: block; margin-bottom: 15px; }
+        .btn { display: inline-block; background: linear-gradient(135deg, var(--accent-blue), #0082ff); color: #fff; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; transition: opacity 0.2s; }
+        .btn:hover { opacity: 0.9; }
+        .btn-orange { background: linear-gradient(135deg, #ff9f43, #ff6b6b); }
+        .badge { position: absolute; top: 10px; right: 10px; background: var(--accent-pink); color: white; padding: 3px 8px; border-radius: 10px; font-size: 0.7rem; font-weight: bold; z-index: 5; }
     </style>
 </head>
 <body>
@@ -52,14 +58,15 @@
         <h2 class="catalog-title">Абсолютно случайный ассортимент</h2>
         <div class="grid">
             
-            <!-- ВОВРАЩАЕМ ПЕРВЫЕ 9 ТОВАРОВ С ФОТОГРАФИЯМИ И ОШИБКОУСТОЙЧИВОСТЬЮ -->
+            <!-- 1. Кепка умоподавления -->
             <div class="card">
                 <div class="image-container">
                     <img src="kepka.jpg" onerror="this.src='kepka.png'; this.onerror=function(){this.parentElement.innerHTML='🧠';}" class="product-img" alt="Кепка">
                 </div>
-                <div class="card-content"><h3>Кепка умоподавления</h3><p>Полностью глушит любые зачатки мышления. Идеальна.</p><span class="price">3 490 ₽</span><a href="cart.html?add=1" class="btn">В корзину</a></div>
+                <div class="card-content"><h3>Кепка умоподавления</h3><p>Полностью глушит любые зачатки критического мышления. Идеальна для залипания в телефон.</p><span class="price">3 490 ₽</span><a href="cart.html?add=1" class="btn">В корзину</a></div>
             </div>
 
+            <!-- 2. Прицел танковый -->
             <div class="card">
                 <div class="image-container">
                     <img src="tank.jpg" onerror="this.src='tank.png'; this.onerror=function(){this.parentElement.innerHTML='🔭';}" class="product-img" alt="Прицел">
@@ -67,6 +74,7 @@
                 <div class="card-content"><h3>Прицел танковый</h3><p>Оптический прицел со следами активной эксплуатации. Позволяет высматривать курьеров.</p><span class="price">45 000 ₽</span><a href="cart.html?add=2" class="btn">В корзину</a></div>
             </div>
 
+            <!-- 3. ЛЭП с кабелями -->
             <div class="card">
                 <div class="image-container">
                     <img src="lep.jpg" onerror="this.src='lep.png'; this.onerror=function(){this.parentElement.innerHTML='🗼';}" class="product-img" alt="ЛЭП">
@@ -74,6 +82,7 @@
                 <div class="card-content"><h3>ЛЭП с кабелями</h3><p>Полноразмерная линия электропередач. Отличный повод поскандалить с председателем СНТ.</p><span class="price">189 000 ₽</span><a href="cart.html?add=3" class="btn">В корзину</a></div>
             </div>
 
+            <!-- 4. Мотоциклетный шлем -->
             <div class="card">
                 <div class="image-container">
                     <img src="shlem.jpg" onerror="this.src='shlem.png'; this.onerror=function(){this.parentElement.innerHTML='🪖';}" class="product-img" alt="Шлем">
@@ -81,19 +90,21 @@
                 <div class="card-content"><h3>Мотоциклетный шлем</h3><p>Защищает голову от реалий жизни. Оснащен встроенным держателем для шаурмы.</p><span class="price">8 200 ₽</span><a href="cart.html?add=4" class="btn">В корзину</a></div>
             </div>
 
-            <div class="card">   
+            <!-- 5. Лицензия на хождение -->
+            <div class="card">
                 <div class="image-container">
                     <img src="lic.jpg" onerror="this.src='lic.png'; this.onerror=function(){this.parentElement.innerHTML='🖐️';}" class="product-img" alt="Лицензия">
                 </div>
-                <div class="card-content"><h3>Лицензия на хождение</h3><p>Официальный юридический документ, разрешающий передвигаться кверху ногами на одной руке.</p><span class="price">1 500 ₽</span><a href="cart.html?add=5" class="btn">В корзину</a></div>
+                <div class="card-content"><h3>Лицензия на хождение</h3><p>Официальный юридический документ, разрешающий передвигаться кверху ногами.</p><span class="price">1 500 ₽</span><a href="cart.html?add=5" class="btn">В корзину</a></div>
             </div>
 
-            <!-- Справка от проктолога (сразу эмодзи, фото не было) -->
+            <!-- 6. Справка от проктолога -->
             <div class="card">
                 <div class="image-container">🩺</div>
                 <div class="card-content"><h3>Справка от проктолога</h3><p>Заключение эксперта из подвала №3 о наличии у вас благородных анальных полипов.</p><span class="price">650 ₽</span><a href="cart.html?add=6" class="btn">В корзину</a></div>
             </div>
 
+            <!-- 7. Daewoo Matiz -->
             <div class="card">
                 <div class="image-container">
                     <img src="matiz.jpg" onerror="this.src='matiz.png'; this.onerror=function(){this.parentElement.innerHTML='🚗';}" class="product-img" alt="Матиз">
@@ -101,34 +112,38 @@
                 <div class="card-content"><h3>Daewoo Matiz</h3><p>Масштаб 1:43. Кузов укомплектован роскошными накладными ресничками на фарах.</p><span class="price">2 100 ₽</span><a href="cart.html?add=7" class="btn">В корзину</a></div>
             </div>
 
+            <!-- 8. Клавиатура GleckTech -->
             <div class="card">
                 <div class="image-container">
                     <img src="klav.jpg" onerror="this.src='klav.png'; this.onerror=function(){this.parentElement.innerHTML='⌨️';}" class="product-img" alt="Клавиатура">
                 </div>
                 <div class="card-content"><h3>Клавиатура GleckTech</h3><p>Кастомная механика. Каждое нажатие на клавишу издает сочный звук открывания пива.</p><span class="price">11 490 ₽</span><a href="cart.html?add=8" class="btn">В корзину</a></div>
             </div>
-     <!-- Флагман с выводом вашей реальной фотки -->
-<div class="card">
-    <span class="badge">Флагман</span>
-    <div class="image-container">
-        <img src="phone.jpg" onerror="this.src='phone.png'; this.onerror=function(){this.parentElement.innerHTML='📱';}" class="product-img" alt="Пшекфон">
-    </div>
-    <div class="card-content">
-        <h3>PshekPhone 1 pro</h3>
-        <p>Первый в мире смартфон без экрана. Зачем дисплей, если есть богатое воображение?</p>
-        <span class="price">99 990 ₽</span>
-        <a href="cart.html?add=9" class="btn btn-orange">Предзаказ</a>
-    </div>
-</div>
 
+            <!-- 9. Вешалка для сушек -->
+            <div class="card">
+                <div class="image-container">
+                    <img src="vesh.jpg" onerror="this.src='vesh.png'; this.onerror=function(){this.parentElement.innerHTML='🪵';}" class="product-img" alt="Вешалка">
+                </div>
+                <div class="card-content"><h3>Вешалка для сушек</h3><p>Эргономичная настенная вешалка. Вмещает до 12 сушек «Малютка». Спасает выпечку от голодных детей.</p><span class="price">890 ₽</span><a href="cart.html?add=10" class="btn">В корзину</a></div>
+            </div>
 
+            <!-- 10. Перфорированная бумага -->
+            <div class="card">
+                <div class="image-container">
+                    <img src="buma.jpg" onerror="this.src='buma.png'; this.onerror=function(){this.parentElement.innerHTML='🧻';}" class="product-img" alt="Бумага">
+                </div>
+                <div class="card-content"><h3>Перфорированная бумага</h3><p>Элитная туалетная бумага, где дырочки идут по всей площади. Вентиляция премиум-класса.</p><span class="price">420 ₽</span><a href="cart.html?add=11" class="btn">В корзину</a></div>
+            </div>
 
-            <!-- НОВЫЕ ТОВАРЫ (С ЗАГЛУШКАМИ ИЗ ЭМОДЗИ) -->
-            <div class="card"><div class="image-container">🪵</div><div class="card-content"><h3>Вешалка для сушек</h3><p>Эргономичная настенная вешалка. Вмещает до 12 сушек «Малютка». Спасает выпечку от голодных детей.</p><span class="price">890 ₽</span><a href="cart.html?add=10" class="btn">В корзину</a></div></div>
-            <div class="card"><div class="image-container">🧻</div><div class="card-content"><h3>Перфорированная бумага</h3><p>Элитная туалетная бумага, где дырочки идут по всей площади. Вентиляция премиум-класса.</p><span class="price">420 ₽</span><a href="cart.html?add=11" class="btn">В корзину</a></div></div>
-            <div class="card"><div class="image-container">💨</div><div class="card-content"><h3>Испаритель на Пасито 2</h3><p>Легендарный испарик. Жарит так, что в радиусе пяти метров временно наступает туманная осень.</p><span class="price">350 ₽</span><a href="cart.html?add=12" class="btn">В корзину</a></div></div>
-            <div class="card"><div class="image-container">🐟</div><div class="card-content"><h3>Глаза воблы (Набор)</h3><p>Пара сушеных пронзительных глаз. Смотрят на вас с осуждением, когда вы тратите деньги на этом сайте.</p><span class="price">150 ₽</span><a href="cart.html?add=13" class="btn">В корзину</a></div></div>
-            <div class="card"><span class="badge">Хит</span><div class="image-container">🖍️</div><div class="card-content"><h3>Раскраска ЗОВлендера</h3><p>Антистресс-раскраска с пафосными взглядами «Голубая сталь».Фармит ауру при закрашивании.</p><span class="price">590 ₽</span><a href="cart.html?add=14" class="btn">В корзину</a></div></div>
-            <div class="card"><div class="image-container">⚙️</div><div class="card-content"><h3>Пружины с Нивы (Пиленные)</h3><p>Минус 3 витка чистого стиля. Занижают вашу самооценку и клиренс любого объекта до уровня асфальта.</p><span class="price">2 990 ₽</span><a href="cart.html?add=15" class="btn">В корзину</a></div></div>
-            <div class="card"><div class="image-container">🪣</div><div class="card-content"><h3>Септик на заказ (3 литра)</h3><p>Эксклюзивный нано-септик объёмом ровно с банку огурцов. Для очень скромных нужд одинокого скуфа.</p><span class="price">14 990 ₽</span><a href="cart.html?add=16" class="btn">В корзину</a></div></div>
-            <div class="card"><span class="badge">Glek</span><div class="image-container">🖱️</div><div class="card-content"><h3>LogiTech G502 GlekEdition</h3><p>Геймерская мышь. Колёсико крутится со звуком падающих на пол Жигулёвских крышек. Сенсор не срывает.</p><span class="price">8 990 ₽</span><a href="cart.html?add=17" class="btn">В корзину</a></div></div>
+            <!-- 11. Испаритель на Пасито 2 -->
+            <div class="card">
+                <div class="image-container">
+                    <img src="ispar.jpg" onerror="this.src='ispar.png'; this.onerror=function(){this.parentElement.innerHTML='💨';}" class="product-img" alt="Испаритель">
+                </div>
+                <div class="card-content"><h3>Испаритель на Пасито 2</h3><p>Легендарный испарик. Жарит так, что в радиусе пяти метров временно наступает туманная осень.</p><span class="price">350 ₽</span><a href="cart.html?add=12" class="btn">В корзину</a></div>
+            </div>
+
+            <!-- 12. Глаза воблы -->
+            <div class="card">
+                <div class="image-container">
